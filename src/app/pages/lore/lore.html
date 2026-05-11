@@ -1,0 +1,70 @@
+<section class="page-hero" aria-labelledby="lore-title">
+  <p class="eyebrow">Chapter 01</p>
+  <h1 id="lore-title">Lore</h1>
+  <p class="intro">
+    The personal origin file: developer energy, favorite games, open roads,
+    match-day instincts, and the odd little details that make the Jamieverse feel alive.
+  </p>
+</section>
+
+<section class="detail-grid" aria-label="Lore entries">
+  <article class="preview-card featured-card">
+    <span class="card-number">Origin</span>
+    <h2>The developer arc</h2>
+    <p>
+      Jamie is a developer: part builder, part problem-solver, part person who can
+      stare at a blank screen and somehow turn it into a working little world.
+    </p>
+    <p>
+      The world around him is stitched together with football nights, Messi magic,
+      badminton rallies, gaming sessions, and the pull of unfamiliar places.
+      Travel keeps the map expanding; games keep the imagination awake.
+    </p>
+  </article>
+
+  <article class="preview-card">
+    <span class="card-number">Arc</span>
+    <h2>Current chapter</h2>
+    <p>
+      Jamie is a seeker in motion: part builder, part explorer, a quiet architect
+      turning every step into a chance to grow. Football once sparked a fire,
+      travel opened new horizons, and every bike ride, every evening walk, is a
+      step toward rediscovering the person behind the path.
+    </p>
+  </article>
+</section>
+
+<section class="preview-card interest-card" aria-labelledby="interests-title">
+  <div>
+    <span class="card-number">Signals</span>
+    <h2 id="interests-title">Core interests</h2>
+  </div>
+
+  <div class="trait-list" aria-label="Jamie interests">
+    <span>Dev</span>
+    <span>Messi fan</span>
+    <span>Football</span>
+    <span>Badminton</span>
+    <span>Travel</span>
+    <span>Gaming</span>
+  </div>
+</section>
+
+<section class="gallery-panel" aria-labelledby="gallery-title">
+  <div>
+    <p class="eyebrow">Memory Vault</p>
+    <h2 id="gallery-title">Gallery</h2>
+    <p>
+      A permanent archive of moments worth keeping: saved from the road, the day,
+      and the chapters that deserve their own little corner.
+    </p>
+  </div>
+</section>
+
+<section class="media-grid" aria-label="Memory Vault gallery">
+  @for (item of memoryVaultItems; track item.src) {
+    <figure class="media-card">
+      <img [src]="item.src" [alt]="item.caption" loading="lazy" />
+    </figure>
+  }
+</section>

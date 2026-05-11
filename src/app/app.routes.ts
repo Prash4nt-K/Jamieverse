@@ -1,3 +1,13 @@
 import { Routes } from '@angular/router';
+import { Home } from './pages/home/home';
+import { Lore } from './pages/lore/lore';
+import { Signals } from './pages/signals/signals';
+import { Vault } from './pages/vault/vault';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  { path: '', component: Home },
+  { path: 'lore', component: Lore },
+  { path: 'signals', component: Signals },
+  { path: 'vault', component: Vault },
+  { path: '**', redirectTo: '' }
+];
