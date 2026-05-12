@@ -321,12 +321,13 @@ h1 {
 
 .video-link-card {
   display: grid;
+  position: relative;
   gap: 8px;
   overflow: hidden;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.28);
 }
 
 .video-link-card iframe {
@@ -341,6 +342,62 @@ h1 {
 .video-link-card strong {
   color: #ffffff;
   font-size: 0.92rem;
+}
+
+.blocked-video-card {
+  min-height: 260px;
+  align-content: end;
+  padding: 16px;
+  background-position: center;
+  background-size: cover;
+}
+
+.blocked-video-card::before {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 8, 12, 0.12), rgba(3, 8, 12, 0.84)),
+    linear-gradient(135deg, rgba(244, 193, 93, 0.2), rgba(69, 173, 214, 0.12));
+  content: "";
+}
+
+.blocked-video-card strong,
+.blocked-video-card p,
+.blocked-video-card a {
+  position: relative;
+  z-index: 1;
+}
+
+.blocked-video-card strong {
+  font-size: 1rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.62);
+}
+
+.video-link-card p {
+  margin-bottom: 0;
+  color: rgba(247, 244, 235, 0.66);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.video-link-card a {
+  display: inline-flex;
+  justify-self: start;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(244, 193, 93, 0.34);
+  border-radius: 8px;
+  color: #f4c15d;
+  background: rgba(244, 193, 93, 0.1);
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.video-link-card a:hover {
+  border-color: rgba(244, 193, 93, 0.72);
+  background: rgba(244, 193, 93, 0.16);
 }
 
 .jukebox-card {

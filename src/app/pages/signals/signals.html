@@ -95,9 +95,13 @@
 
     <div class="video-link-list" aria-label="Useful video links">
       @for (video of usefulVideos; track video.youtubeUrl) {
-        <article class="video-link-card">
+        <article
+          class="video-link-card"
+          [class.blocked-video-card]="video.embedBlocked"
+          [style.background-image]="video.embedBlocked ? getVideoThumbnailBackground(video.youtubeUrl) : null"
+        >
           <strong>{{ video.title }}</strong>
-          @if (getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
+          @if (!video.embedBlocked && getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
             <iframe
               [src]="videoEmbedUrl"
               [title]="video.title"
@@ -105,6 +109,10 @@
               allowfullscreen
             ></iframe>
           }
+          <p>{{ video.description }}</p>
+          <a [href]="video.youtubeUrl" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
         </article>
       } @empty {
         <p class="empty-note">Add videos in src/app/data/useful-videos.json.</p>
@@ -123,9 +131,13 @@
 
     <div class="video-link-list" aria-label="Football video links">
       @for (video of footballVideos; track video.youtubeUrl) {
-        <article class="video-link-card">
+        <article
+          class="video-link-card"
+          [class.blocked-video-card]="video.embedBlocked"
+          [style.background-image]="video.embedBlocked ? getVideoThumbnailBackground(video.youtubeUrl) : null"
+        >
           <strong>{{ video.title }}</strong>
-          @if (getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
+          @if (!video.embedBlocked && getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
             <iframe
               [src]="videoEmbedUrl"
               [title]="video.title"
@@ -133,6 +145,10 @@
               allowfullscreen
             ></iframe>
           }
+          <p>{{ video.description }}</p>
+          <a [href]="video.youtubeUrl" target="_blank" rel="noreferrer">
+            Watch on YouTube
+          </a>
         </article>
       } @empty {
         <p class="empty-note">Add videos in src/app/data/football-videos.json.</p>
