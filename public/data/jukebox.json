@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Hindi",
+    "songs": [
+      {
+        "title": "Add a Hindi favorite",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=dx4Teh-nv3A"
+      },
+      {
+        "title": "Add another Hindi favorite",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZmcBC9-wAXM"
+      }
+    ]
+  },
+  {
+    "name": "English",
+    "songs": [
+      {
+        "title": "Add an English favorite",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=bpOSxM0rNPM"
+      },
+      {
+        "title": "Add another English favorite",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=yKNxeF4KMsY"
+      },
+      {
+        "title": "Add English favorite 03",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=aJOTlE1K90k"
+      },
+      {
+        "title": "Add English favorite 04",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=1G4isv_Fylg"
+      }
+    ]
+  },
+  {
+    "name": "90s",
+    "songs": [
+      {
+        "title": "Add a 90s favorite",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=YlUKcNNmywk"
+      },
+      {
+        "title": "Add another 90s favorite",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=vx2u5uUu3DE"
+      },
+      {
+        "title": "Add 90s favorite 03",
+        "artist": "",
+        "youtubeUrl": "https://www.youtube.com/watch?v=fV4DiAyExN0"
+      }
+    ]
+  }
+]

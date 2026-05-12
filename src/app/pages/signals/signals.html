@@ -2,20 +2,88 @@
   <p class="eyebrow">Chapter 02</p>
   <h1 id="signals-title">Signals</h1>
   <p class="intro">
-    Favorite moods, songs, tools, ideas, aesthetics, and patterns that feel very Jamie.
+    A curated board for the things Jamie keeps returning to: playlists, reads,
+    useful videos, sharp opinions, self-work, and football magic.
   </p>
 </section>
 
-<section class="detail-grid" aria-label="Signal entries">
-  <article class="preview-card">
-    <span class="card-number">Mood</span>
-    <h2>Current frequency</h2>
-    <p>A living board for the colors, textures, sounds, and habits that make the vibe recognizable.</p>
+<section class="signal-board" aria-label="Signal collections">
+  <article class="preview-card jukebox-card">
+    <div class="jukebox-header">
+      <h2>Jamie's Jukebox</h2>
+    </div>
+
+    <div class="jukebox-player">
+      @if (currentEmbedUrl) {
+        <iframe
+          [src]="currentEmbedUrl"
+          title="Jamie's Jukebox YouTube player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      } @else {
+        <div class="player-placeholder">Jukebox is warming up...</div>
+      }
+    </div>
+
+    <div class="jukebox-controls">
+      <div class="playlist-switcher">
+        <span>Choose playlist</span>
+        <div class="playlist-tabs" aria-label="Jukebox playlists">
+          @for (playlist of playlists; track playlist.name; let playlistIndex = $index) {
+            <button
+              type="button"
+              [class.active]="playlistIndex === selectedPlaylistIndex"
+              (click)="selectPlaylist(playlistIndex)"
+            >
+              {{ playlist.name }}
+            </button>
+          }
+        </div>
+      </div>
+
+      <p>{{ selectedPlaylist.name }}</p>
+    </div>
+
+    <div class="track-controls" aria-label="Jukebox track controls">
+      <button type="button" (click)="playPreviousSong()">‹ Previous</button>
+      @if (selectedSong) {
+        <div>
+          <small>Now playing</small>
+          <span>{{ selectedSong.title }}</span>
+          @if (selectedSong.artist) {
+            <em>{{ selectedSong.artist }}</em>
+          }
+        </div>
+      }
+      <button type="button" (click)="playNextSong()">Next ›</button>
+    </div>
   </article>
 
-  <article class="preview-card">
-    <span class="card-number">Pattern</span>
-    <h2>Recurring signs</h2>
-    <p>The small obsessions and repeated choices that quietly define the Jamie signal.</p>
+  <article class="preview-card signal-card">
+    <span class="card-number">Reads</span>
+    <h2>Favorite reads</h2>
+    <p>
+      Articles, essays, blogs, and saved links that are worth coming back to when
+      the mind wants something with texture.
+    </p>
+  </article>
+
+  <article class="preview-card signal-card">
+    <span class="card-number">Useful</span>
+    <h2>Videos that help</h2>
+    <p>
+      Life fixes, self-help, political opinions, practical explainers, and videos
+      that leave behind a useful thought.
+    </p>
+  </article>
+
+  <article class="preview-card signal-card featured-card">
+    <span class="card-number">Football</span>
+    <h2>Football shrine</h2>
+    <p>
+      A dedicated corner for the beautiful game: Messi brilliance, iconic goals,
+      match memories, and YouTube videos that deserve permanent replay.
+    </p>
   </article>
 </section>
