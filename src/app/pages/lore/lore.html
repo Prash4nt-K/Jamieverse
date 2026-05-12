@@ -64,7 +64,13 @@
 <section class="media-grid" aria-label="Memory Vault gallery">
   @for (item of memoryVaultItems; track item.src) {
     <figure class="media-card">
-      <img [src]="item.src" [alt]="item.caption" loading="lazy" />
+      <img
+        [src]="item.src"
+        [alt]="item.caption"
+        loading="lazy"
+        draggable="false"
+        (contextmenu)="$event.preventDefault()"
+      />
     </figure>
   }
 </section>
