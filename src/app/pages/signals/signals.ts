@@ -1,6 +1,9 @@
-import { isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, ChangeDetectorRef, Component, PLATFORM_ID, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import jukeboxData from '../../data/jukebox.json';
+import readsData from '../../data/reads.json';
+import footballVideosData from '../../data/football-videos.json';
+import usefulVideosData from '../../data/useful-videos.json';
 
 interface JukeboxSong {
   title: string;
@@ -13,45 +16,33 @@ interface JukeboxPlaylist {
   songs: JukeboxSong[];
 }
 
+interface ReadLink {
+  title: string;
+  source: string;
+  description: string;
+  url: string;
+}
+
+interface VideoLink {
+  title: string;
+  source: string;
+  description: string;
+  youtubeUrl: string;
+}
+
 @Component({
   selector: 'app-signals',
   templateUrl: './signals.html'
 })
-export class Signals implements AfterViewInit {
-  private readonly platformId = inject(PLATFORM_ID);
+export class Signals {
   private readonly sanitizer = inject(DomSanitizer);
-  private readonly changeDetectorRef = inject(ChangeDetectorRef);
 
-  playlists: JukeboxPlaylist[] = [];
+  playlists: JukeboxPlaylist[] = jukeboxData;
+  reads: ReadLink[] = readsData;
+  usefulVideos: VideoLink[] = usefulVideosData;
+  footballVideos: VideoLink[] = footballVideosData;
   selectedPlaylistIndex = 0;
   selectedSongIndex = 0;
-
-  ngAfterViewInit() {
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
-
-    setTimeout(() => {
-      void this.loadJukebox();
-    });
-  }
-
-  private async loadJukebox() {
-    try {
-      const response = await fetch('/data/jukebox.json');
-      const playlists = (await response.json()) as JukeboxPlaylist[];
-
-      if (Array.isArray(playlists) && playlists.length) {
-        this.playlists = playlists;
-        this.selectedPlaylistIndex = 0;
-        this.selectedSongIndex = 0;
-      }
-    } catch {
-      this.playlists = [];
-    } finally {
-      this.changeDetectorRef.detectChanges();
-    }
-  }
 
   get selectedPlaylist() {
     return this.playlists[this.selectedPlaylistIndex] ?? { name: '', songs: [] };
@@ -101,6 +92,18 @@ export class Signals implements AfterViewInit {
     }
 
     this.selectedSongIndex = (this.selectedSongIndex + 1) % songCount;
+  }
+
+  getVideoEmbedUrl(youtubeUrl: string): SafeResourceUrl | null {
+    const youtubeId = this.getYouTubeId(youtubeUrl);
+
+    if (!youtubeId) {
+      return null;
+    }
+
+    return this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${youtubeId}`
+    );
   }
 
   private getYouTubeId(url?: string) {

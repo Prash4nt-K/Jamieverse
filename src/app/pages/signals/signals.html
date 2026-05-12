@@ -46,7 +46,7 @@
     </div>
 
     <div class="track-controls" aria-label="Jukebox track controls">
-      <button type="button" (click)="playPreviousSong()">‹ Previous</button>
+      <button type="button" (click)="playPreviousSong()">&lt; Previous</button>
       @if (selectedSong) {
         <div>
           <small>Now playing</small>
@@ -56,34 +56,87 @@
           }
         </div>
       }
-      <button type="button" (click)="playNextSong()">Next ›</button>
+      <button type="button" (click)="playNextSong()">Next &gt;</button>
     </div>
   </article>
 
-  <article class="preview-card signal-card">
-    <span class="card-number">Reads</span>
-    <h2>Favorite reads</h2>
+  <article class="preview-card signal-card reads-card">
+    <div>
+      <span class="card-number">Reads</span>
+    </div>
     <p>
       Articles, essays, blogs, and saved links that are worth coming back to when
       the mind wants something with texture.
     </p>
+
+    <div class="read-list" aria-label="Favorite read links">
+      @for (read of reads; track read.url) {
+        <a [href]="read.url" target="_blank" rel="noreferrer">
+          <span class="read-icon" aria-hidden="true">📖</span>
+          <span class="read-source">{{ read.source }}</span>
+          <strong>{{ read.title }}</strong>
+          <p>{{ read.description }}</p>
+          <span class="read-action">Read article</span>
+        </a>
+      } @empty {
+        <p class="empty-note">Add reads in src/app/data/reads.json.</p>
+      }
+    </div>
   </article>
 
-  <article class="preview-card signal-card">
-    <span class="card-number">Useful</span>
-    <h2>Videos that help</h2>
+  <article class="preview-card signal-card video-links-card useful-card">
+    <div>
+      <span class="card-number">Useful</span>
+    </div>
     <p>
       Life fixes, self-help, political opinions, practical explainers, and videos
       that leave behind a useful thought.
     </p>
+
+    <div class="video-link-list" aria-label="Useful video links">
+      @for (video of usefulVideos; track video.youtubeUrl) {
+        <article class="video-link-card">
+          <strong>{{ video.title }}</strong>
+          @if (getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
+            <iframe
+              [src]="videoEmbedUrl"
+              [title]="video.title"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          }
+        </article>
+      } @empty {
+        <p class="empty-note">Add videos in src/app/data/useful-videos.json.</p>
+      }
+    </div>
   </article>
 
-  <article class="preview-card signal-card featured-card">
-    <span class="card-number">Football</span>
-    <h2>Football shrine</h2>
+  <article class="preview-card signal-card video-links-card football-card featured-card">
+    <div>
+      <span class="card-number">Football</span>
+    </div>
     <p>
       A dedicated corner for the beautiful game: Messi brilliance, iconic goals,
       match memories, and YouTube videos that deserve permanent replay.
     </p>
+
+    <div class="video-link-list" aria-label="Football video links">
+      @for (video of footballVideos; track video.youtubeUrl) {
+        <article class="video-link-card">
+          <strong>{{ video.title }}</strong>
+          @if (getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
+            <iframe
+              [src]="videoEmbedUrl"
+              [title]="video.title"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          }
+        </article>
+      } @empty {
+        <p class="empty-note">Add videos in src/app/data/football-videos.json.</p>
+      }
+    </div>
   </article>
 </section>

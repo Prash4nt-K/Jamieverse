@@ -172,6 +172,177 @@ h1 {
   flex-direction: column;
 }
 
+.signal-card,
+.video-links-card {
+  grid-column: 1 / -1;
+}
+
+.reads-card {
+  gap: 10px;
+  border-color: rgba(103, 192, 166, 0.22);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(103, 192, 166, 0.22), transparent 24rem),
+    radial-gradient(circle at 88% 12%, rgba(69, 173, 214, 0.16), transparent 22rem),
+    linear-gradient(135deg, rgba(13, 41, 42, 0.72), rgba(23, 32, 48, 0.74));
+}
+
+.video-links-card {
+  gap: 10px;
+}
+
+.useful-card {
+  border-color: rgba(120, 174, 255, 0.2);
+  background:
+    radial-gradient(circle at 14% 0%, rgba(120, 174, 255, 0.2), transparent 24rem),
+    radial-gradient(circle at 90% 18%, rgba(103, 192, 166, 0.14), transparent 22rem),
+    linear-gradient(135deg, rgba(16, 35, 58, 0.76), rgba(14, 45, 45, 0.68));
+}
+
+.football-card {
+  border-color: rgba(244, 193, 93, 0.24);
+  background:
+    radial-gradient(circle at 14% 0%, rgba(244, 193, 93, 0.22), transparent 24rem),
+    radial-gradient(circle at 90% 12%, rgba(255, 94, 91, 0.18), transparent 22rem),
+    linear-gradient(135deg, rgba(37, 49, 23, 0.78), rgba(55, 29, 24, 0.72));
+}
+
+.video-links-card .card-number {
+  margin-bottom: 18px;
+}
+
+.video-links-card h2 {
+  margin-bottom: 8px;
+}
+
+.video-links-card > p {
+  margin-bottom: 4px;
+}
+
+.reads-card .card-number {
+  margin-bottom: 18px;
+}
+
+.reads-card h2 {
+  margin-bottom: 8px;
+}
+
+.reads-card > p {
+  margin-bottom: 4px;
+}
+
+.read-list {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.video-link-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: auto;
+}
+
+.read-list a {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  padding: 14px;
+  border: 1px solid rgba(103, 192, 166, 0.22);
+  border-left: 4px solid rgba(103, 192, 166, 0.88);
+  border-radius: 8px;
+  color: inherit;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(103, 192, 166, 0.2), transparent 16rem),
+    linear-gradient(135deg, rgba(28, 61, 63, 0.72), rgba(42, 24, 51, 0.58)),
+    rgba(255, 255, 255, 0.06);
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.read-list a:hover {
+  border-color: rgba(103, 192, 166, 0.66);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(103, 192, 166, 0.26), transparent 16rem),
+    linear-gradient(135deg, rgba(28, 61, 63, 0.86), rgba(42, 24, 51, 0.66)),
+    rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.read-icon {
+  display: grid;
+  grid-row: span 3;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 8px;
+  color: #ffffff;
+  background: rgba(3, 8, 12, 0.46);
+  box-shadow: inset 0 0 0 1px rgba(103, 192, 166, 0.3);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.read-source {
+  justify-self: start;
+  padding: 5px 8px;
+  border: 1px solid rgba(103, 192, 166, 0.28);
+  border-radius: 999px;
+  color: #67c0a6;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.read-list strong {
+  grid-column: 2 / -1;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.read-list p,
+.empty-note {
+  grid-column: 2 / -1;
+  margin-bottom: 0;
+  color: rgba(247, 244, 235, 0.68);
+  line-height: 1.55;
+}
+
+.read-action {
+  grid-column: 2 / -1;
+  color: #f4c15d;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.video-link-card {
+  display: grid;
+  gap: 8px;
+  overflow: hidden;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.video-link-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.28);
+}
+
+.video-link-card strong {
+  color: #ffffff;
+  font-size: 0.92rem;
+}
+
 .jukebox-card {
   grid-column: 1 / -1;
   padding: 0;
@@ -516,6 +687,10 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .video-link-list {
+    grid-template-columns: 1fr;
+  }
+
   .media-grid {
     column-count: 1;
   }
@@ -558,4 +733,5 @@ h1 {
     order: -1;
     text-align: left;
   }
+
 }
