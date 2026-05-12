@@ -629,25 +629,27 @@ h1 {
 
 .media-card {
   display: inline-block;
+  position: relative;
   width: 100%;
   margin: 0;
   margin-bottom: 14px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
   transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
+    border-color 260ms ease,
+    box-shadow 260ms ease,
+    transform 260ms ease;
   break-inside: avoid;
 }
 
 .media-card:hover {
+  z-index: 2;
   border-color: rgba(244, 193, 93, 0.42);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .media-card img,
@@ -655,9 +657,26 @@ h1 {
   display: block;
   width: 100%;
   aspect-ratio: auto;
+  border-radius: 8px;
   height: auto;
   object-fit: cover;
   background: rgba(0, 0, 0, 0.24);
+}
+
+.media-card img {
+  transition:
+    filter 320ms ease,
+    box-shadow 320ms ease,
+    transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.media-card:hover img {
+  filter: contrast(1.05) saturate(1.06);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.52),
+    0 0 0 1px rgba(244, 193, 93, 0.22),
+    0 0 36px rgba(244, 193, 93, 0.18);
+  transform: scale(1.02);
 }
 
 .media-card figcaption,
@@ -734,4 +753,33 @@ h1 {
     text-align: left;
   }
 
+}
+
+@media (max-width: 520px) {
+  .track-controls {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 8px;
+  }
+
+  .track-controls button {
+    min-width: 44px;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .track-controls button:first-child::before {
+    content: "<";
+    font-size: 1.2rem;
+  }
+
+  .track-controls button:last-child::before {
+    content: ">";
+    font-size: 1.2rem;
+  }
+
+  .track-controls div {
+    order: initial;
+    padding: 10px;
+    text-align: center;
+  }
 }
