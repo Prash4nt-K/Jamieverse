@@ -1,0 +1,44 @@
+<section class="page-hero gaming-hero" aria-labelledby="gaming-title">
+  <p class="eyebrow">Chapter 04</p>
+  <h1 id="gaming-title">Gaming Vids</h1>
+  <p class="intro">
+    A dedicated replay room for Jamie's YouTube uploads: recorded matches,
+    clutch moments, chaotic sessions, and the clips that deserve a second watch.
+  </p>
+</section>
+
+<section class="gaming-panel" aria-labelledby="gaming-library-title">
+  <div>
+    <p class="eyebrow">YouTube shelf</p>
+    <h2 id="gaming-library-title">Recorded sessions</h2>
+    <p>
+      Drop new upload links into the gaming video list and they will show up here
+      as embedded YouTube players.
+    </p>
+  </div>
+</section>
+
+<section class="gaming-video-grid" aria-label="Gaming video collection">
+  @for (video of videos; track video.youtubeUrl) {
+    <article class="gaming-video-card">
+      @if (getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
+        <iframe
+          [src]="videoEmbedUrl"
+          [title]="video.title"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      }
+
+      <div class="gaming-video-copy">
+        <span>{{ video.game }}</span>
+        <h2>{{ video.title }}</h2>
+        <p>{{ video.description }}</p>
+      </div>
+    </article>
+  } @empty {
+    <article class="empty-gallery gaming-empty">
+      <p>Add gaming uploads in src/app/data/gaming-videos.json.</p>
+    </article>
+  }
+</section>

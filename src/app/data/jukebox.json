@@ -3,14 +3,39 @@
     "name": "Hindi",
     "songs": [
       {
-        "title": "Add a Hindi favorite",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=dx4Teh-nv3A"
+        "title": "Qaafirana",
+        "artist": "Amit Trivedi, Arijit Singh & Nikhita Gandhi",
+        "youtubeUrl": "https://www.youtube.com/watch?v=ZmcBC9-wAXM"
       },
       {
-        "title": "Add another Hindi favorite",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=ZmcBC9-wAXM"
+        "title": "Yun Hi Chala Chal",
+        "artist": "Udit Narayan",
+        "youtubeUrl": "https://www.youtube.com/watch?v=eEeX2QMlSlo"
+      },
+      {
+        "title": "Senorita",
+        "artist": "Farhan Akhtar, Hrithik Roshan, Abhay Deol",
+        "youtubeUrl": "https://www.youtube.com/watch?v=yDv0WSgXJVg"
+      }
+    ]
+  },
+  {
+    "name": "Punjabi",
+    "songs": [
+      {
+        "title": "Laung Da Lashkara",
+        "artist": "Gurdas Maan",
+        "youtubeUrl": "https://www.youtube.com/watch?v=MS55Ke6AQTc"
+      }
+    ]
+  },
+  {
+    "name": "Hindi 2012-2018",
+    "songs": [
+      {
+        "title": "Ishq Wala Love",
+        "artist": "Neeti Mohan",
+        "youtubeUrl": "https://www.youtube.com/watch?v=VmH8tELQ3aE"
       }
     ]
   },
@@ -18,44 +43,74 @@
     "name": "English",
     "songs": [
       {
-        "title": "Add an English favorite",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=bpOSxM0rNPM"
-      },
-      {
-        "title": "Add another English favorite",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=yKNxeF4KMsY"
-      },
-      {
-        "title": "Add English favorite 03",
-        "artist": "",
+        "title": "Girls Like You",
+        "artist": "Maroon 5",
         "youtubeUrl": "https://www.youtube.com/watch?v=aJOTlE1K90k"
-      },
-      {
-        "title": "Add English favorite 04",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=1G4isv_Fylg"
       }
     ]
   },
   {
-    "name": "90s",
+    "name": "Hindi Old",
     "songs": [
       {
-        "title": "Add a 90s favorite",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=YlUKcNNmywk"
+        "title": "Mere Samne Wali Khidki Mein",
+        "artist": "Saira Banu, Sunil Dutt & Kishore Kumar",
+        "youtubeUrl": "https://www.youtube.com/watch?v=S0WPSYFm7iE"
+      }
+    ]
+  },
+  {
+    "name": "Fun",
+    "songs": [
+      {
+        "title": "Please Please Please",
+        "artist": "Sabrina Carpenter",
+        "youtubeUrl": "https://www.youtube.com/watch?v=cF1Na4AIecM"
       },
       {
-        "title": "Add another 90s favorite",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=vx2u5uUu3DE"
+        "title": "Espresso",
+        "artist": "Sabrina Carpenter",
+        "youtubeUrl": "https://www.youtube.com/watch?v=eVli-tstM5E"
       },
       {
-        "title": "Add 90s favorite 03",
-        "artist": "",
-        "youtubeUrl": "https://www.youtube.com/watch?v=fV4DiAyExN0"
+        "title": "Levitating",
+        "artist": "Dua Lipa",
+        "youtubeUrl": "https://www.youtube.com/watch?v=TUVcZfQe-Kw"
+      },
+      {
+        "title": "Señorita",
+        "artist": "Shawn Mendes, Camila Cabello",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Pkh8UtuejGw"
+      }
+    ]
+  },
+  {
+    "name": "Vibes",
+    "songs": [
+      {
+        "title": "Please Please Please",
+        "artist": "The Weeknd",
+        "youtubeUrl": "https://www.youtube.com/watch?v=XXYlFuWEuKI"
+      }
+    ]
+  },
+  {
+    "name": "English 90s",
+    "songs": [
+      {
+        "title": "Scar Tissue",
+        "artist": "Red hot chili peppers",
+        "youtubeUrl": "https://www.youtube.com/watch?v=mzJj5-lubeM"
+      }
+    ]
+  },
+  {
+    "name": "Rock",
+    "songs": [
+      {
+        "title": "Burn It Down",
+        "artist": "Linkin Park",
+        "youtubeUrl": "https://www.youtube.com/watch?v=dxytyRy-O1k"
       }
     ]
   }
