@@ -1,0 +1,166 @@
+<section class="page-hero community-hero" aria-labelledby="community-title">
+  <p class="eyebrow">Chapter 05</p>
+  <h1 id="community-title">Jamieverse Community</h1>
+  <p class="intro">
+    A public board for ideas, texts, perspectives, blogs, videos, and resources
+    that help people think clearly in a noisy world.
+  </p>
+</section>
+
+<section class="community-board" aria-label="Community suggestions">
+  <details class="preview-card community-submit-card">
+    <summary>
+      <span class="card-number">Contribute</span>
+      <span class="community-summary-title">Add something that can brighten someone's mind</span>
+      <span class="community-summary-note">
+        Share links, text, images, videos, or perspectives that help everyone
+        learn, feel hopeful, or see more clearly.
+      </span>
+      <span class="community-contribute-button">
+        <span class="contribute-label-closed">Click here to contribute</span>
+        <span class="contribute-label-open">Close contribution form</span>
+      </span>
+    </summary>
+
+    <div class="community-form-intro">
+      <h2>Build a better signal library</h2>
+      <p>
+        This space is for community contributions that help people, spread
+        positivity, reduce confusion, or offer a useful perspective.
+      </p>
+    </div>
+
+    <form class="suggestion-form" aria-label="Community suggestion form">
+      <label>
+        <span>Your name</span>
+        <input type="text" name="name" placeholder="Optional" />
+      </label>
+
+      <label>
+        <span>Contribution type</span>
+        <select name="category">
+          <option>Helpful link</option>
+          <option>Text or thought</option>
+          <option>Image</option>
+          <option>Video or talk</option>
+          <option>Blog or essay</option>
+          <option>Positive message</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Title</span>
+        <input type="text" name="title" placeholder="What should people see?" />
+      </label>
+
+      <label>
+        <span>Link</span>
+        <input type="url" name="link" placeholder="https://..." />
+      </label>
+
+      <label class="wide-field">
+        <span>Text, message, or context</span>
+        <textarea name="reason" rows="5" placeholder="What does this help with? How could it make someone think, smile, learn, or feel less alone?"></textarea>
+      </label>
+
+      <label class="wide-field">
+        <span>Image or file</span>
+        <input type="file" name="attachment" accept="image/*,video/*" />
+      </label>
+
+      <button type="button">Submit contribution</button>
+    </form>
+  </details>
+
+  <aside class="community-note-card">
+    <span class="card-number">Why this exists</span>
+    <p>
+      A small corner for collecting useful signals: ideas, resources, and
+      perspectives that help people think, question, and understand.
+    </p>
+  </aside>
+
+  <div class="community-card-grid" aria-label="Community contributions">
+    @for (card of communityCards; track card.title) {
+      <article class="preview-card community-content-card">
+        <div class="community-card-preview">
+          <a class="community-fullscreen-link" [routerLink]="['/community', card.slug]">
+            Open full view
+          </a>
+
+          @if (card.link; as link) {
+            @if (link.type === 'youtube') {
+              <iframe
+                [src]="getYouTubeEmbedUrl(link.url)"
+                title="Community YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            } @else if (link.type === 'audio') {
+              <div class="community-audio-preview">
+                <span>Audio</span>
+                <audio [src]="link.url" controls></audio>
+              </div>
+            } @else if (link.type === 'video') {
+              <video [src]="link.url" controls></video>
+            } @else if (link.type === 'image') {
+              <img [src]="link.url" [alt]="card.title" />
+            } @else {
+              <div class="community-article-preview">
+                <span>{{ card.format }}</span>
+                <strong>{{ link.label }}</strong>
+              </div>
+            }
+          } @else if (card.attachment; as attachment) {
+            @if (attachment.type === 'pdf') {
+              <iframe
+                [src]="getSafeResourceUrl(attachment.url)"
+                title="Community PDF attachment">
+              </iframe>
+            } @else if (attachment.type === 'video') {
+              <video [src]="attachment.url" controls></video>
+            } @else if (attachment.type === 'image') {
+              <img [src]="attachment.url" [alt]="attachment.label" />
+            } @else if (attachment.type === 'text') {
+              <iframe
+                [src]="getSafeResourceUrl(attachment.url)"
+                title="Community text attachment">
+              </iframe>
+            } @else {
+              <div class="community-article-preview">
+                <span>{{ card.format }}</span>
+                <strong>{{ attachment.label }}</strong>
+              </div>
+            }
+          } @else {
+            <div class="community-article-preview">
+              <span>{{ card.format }}</span>
+              <strong>Community signal</strong>
+            </div>
+          }
+        </div>
+
+        <div class="community-card-copy">
+          <span class="community-card-format">{{ card.format }}</span>
+          <h2>{{ card.title }}</h2>
+          <p>{{ card.description }}</p>
+
+          @if (card.enteredText) {
+            <p class="community-entered-text">{{ card.enteredText }}</p>
+          }
+
+          @if (card.attachment; as attachment) {
+            <a class="community-file-link" [href]="attachment.url" target="_blank" rel="noreferrer">
+              {{ attachment.label }}
+            </a>
+          }
+
+          <div class="community-card-footer">
+            <span>{{ card.source }}</span>
+            <a [routerLink]="['/community', card.slug]">Open full view</a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

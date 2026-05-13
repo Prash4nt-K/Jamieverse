@@ -7,6 +7,7 @@ interface GamingVideo {
   game: string;
   description: string;
   youtubeUrl: string;
+  embedBlocked?: boolean;
 }
 
 @Component({
@@ -28,6 +29,26 @@ export class Gaming {
     return this.sanitizer.bypassSecurityTrustResourceUrl(
       `https://www.youtube.com/embed/${youtubeId}`
     );
+  }
+
+  getVideoThumbnailUrl(youtubeUrl: string) {
+    const youtubeId = this.getYouTubeId(youtubeUrl);
+
+    if (!youtubeId) {
+      return '';
+    }
+
+    return `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`;
+  }
+
+  getVideoThumbnailBackground(youtubeUrl: string) {
+    const thumbnailUrl = this.getVideoThumbnailUrl(youtubeUrl);
+
+    if (!thumbnailUrl) {
+      return '';
+    }
+
+    return `url("${thumbnailUrl}")`;
   }
 
   private getYouTubeId(url?: string) {

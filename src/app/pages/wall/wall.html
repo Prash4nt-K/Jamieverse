@@ -1,0 +1,141 @@
+<section class="page-hero wall-hero" aria-labelledby="wall-title">
+  <p class="eyebrow">Chapter 06</p>
+  <h1 id="wall-title">Wall</h1>
+  <p class="intro">
+    The everyday board for motivation, pictures, small wins, random excitement,
+    and ordinary moments worth sharing.
+  </p>
+</section>
+
+<section class="wall-board" aria-label="Wall posts">
+  <details class="preview-card wall-composer">
+    <summary>
+      <span class="card-number">Post something</span>
+      <h2>What made today feel alive?</h2>
+      <span class="wall-summary-note">
+        Share a thought, picture, link, small win, or anything that made today
+        feel a little more interesting.
+      </span>
+      <span class="wall-toggle-button">
+        <span class="wall-label-closed">Click here to post</span>
+        <span class="wall-label-open">Close post form</span>
+      </span>
+    </summary>
+
+    <form class="wall-form" aria-label="Wall post form">
+      <label>
+        <span>Your name</span>
+        <input type="text" name="name" placeholder="Optional" />
+      </label>
+
+      <label>
+        <span>Post type</span>
+        <select name="type">
+          @for (idea of postIdeas; track idea) {
+            <option>{{ idea }}</option>
+          }
+        </select>
+      </label>
+
+      <label>
+        <span>Title</span>
+        <input type="text" name="title" placeholder="Give it a tiny headline" />
+      </label>
+
+      <label>
+        <span>Share link</span>
+        <input type="url" name="link" placeholder="https://..." />
+      </label>
+
+      <label class="wide-field">
+        <span>What do you want to share?</span>
+        <textarea name="post" rows="4" placeholder="A quote, picture context, small win, exciting update, or just something from your day."></textarea>
+      </label>
+
+      <label class="wide-field">
+        <span>Picture or video</span>
+        <input type="file" name="attachment" accept="image/*,video/*" />
+      </label>
+
+      <button type="button">Post to wall</button>
+    </form>
+  </details>
+
+  <aside class="wall-context" aria-label="Wall purpose">
+    <span class="card-number">Community vs Wall</span>
+    <p>
+      Community is the curated library. Wall is the casual pulse: daily life,
+      joy, progress, photos, and whatever made someone smile today.
+    </p>
+  </aside>
+
+  <div class="wall-feed" aria-label="Recent wall posts">
+    @for (post of posts; track post.title) {
+      <article class="preview-card community-content-card wall-content-card">
+        <div class="community-card-preview">
+          <a class="community-fullscreen-link" [routerLink]="['/wall', post.slug]">
+            Open full view
+          </a>
+
+          @if (post.link; as link) {
+            @if (link.type === 'youtube') {
+              <iframe
+                [src]="getYouTubeEmbedUrl(link.url)"
+                title="Wall YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            } @else if (link.type === 'audio') {
+              <div class="community-audio-preview wall-audio-preview">
+                <span>Audio</span>
+                <audio [src]="link.url" controls></audio>
+              </div>
+            } @else if (link.type === 'video') {
+              <video [src]="link.url" controls></video>
+            } @else if (link.type === 'image') {
+              <img [src]="link.url" [alt]="post.title" />
+            } @else {
+              <div class="community-article-preview wall-article-preview">
+                <span>{{ post.mood }}</span>
+                <strong>{{ link.label }}</strong>
+              </div>
+            }
+          } @else if (post.attachment; as attachment) {
+            @if (attachment.type === 'pdf') {
+              <iframe
+                [src]="getSafeResourceUrl(attachment.url)"
+                title="Wall PDF attachment">
+              </iframe>
+            } @else if (attachment.type === 'video') {
+              <video [src]="attachment.url" controls></video>
+            } @else if (attachment.type === 'image') {
+              <img [src]="attachment.url" [alt]="attachment.label" />
+            } @else {
+              <iframe
+                [src]="getSafeResourceUrl(attachment.url)"
+                title="Wall text attachment">
+              </iframe>
+            }
+          }
+        </div>
+
+        <div class="community-card-copy">
+          <span class="wall-mood">{{ post.mood }}</span>
+          <h2>{{ post.title }}</h2>
+          <p class="community-entered-text">{{ post.text }}</p>
+
+          @if (post.attachment; as attachment) {
+            <a class="community-file-link" [href]="attachment.url" target="_blank" rel="noreferrer">
+              {{ attachment.label }}
+            </a>
+          }
+
+          <div class="community-card-footer">
+            <span>{{ post.author }}</span>
+            <a [routerLink]="['/wall', post.slug]">Open full view</a>
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>

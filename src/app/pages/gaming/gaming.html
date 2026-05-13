@@ -7,38 +7,41 @@
   </p>
 </section>
 
-<section class="gaming-panel" aria-labelledby="gaming-library-title">
+<section class="gaming-panel preview-card video-links-card gaming-card" aria-labelledby="gaming-library-title">
   <div>
-    <p class="eyebrow">YouTube shelf</p>
+    <span class="card-number">YouTube Shelf</span>
     <h2 id="gaming-library-title">Recorded sessions</h2>
     <p>
-      Drop new upload links into the gaming video list and they will show up here
-      as embedded YouTube players.
+      Jamie's gameplay uploads, clutch replays, and long-form sessions gathered
+      into one replay board.
     </p>
   </div>
-</section>
 
-<section class="gaming-video-grid" aria-label="Gaming video collection">
-  @for (video of videos; track video.youtubeUrl) {
-    <article class="gaming-video-card">
-      @if (getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
-        <iframe
-          [src]="videoEmbedUrl"
-          [title]="video.title"
-          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      }
+  <div class="video-link-list gaming-video-list" aria-label="Gaming video links">
+    @for (video of videos; track video.youtubeUrl) {
+      <article
+        class="video-link-card gaming-video-card"
+        [class.blocked-video-card]="video.embedBlocked"
+        [style.background-image]="video.embedBlocked ? getVideoThumbnailBackground(video.youtubeUrl) : null"
+      >
+        <span class="video-tag">{{ video.game }}</span>
+        <strong>{{ video.title }}</strong>
+        @if (!video.embedBlocked && getVideoEmbedUrl(video.youtubeUrl); as videoEmbedUrl) {
+          <iframe
+            [src]="videoEmbedUrl"
+            [title]="video.title"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        }
 
-      <div class="gaming-video-copy">
-        <span>{{ video.game }}</span>
-        <h2>{{ video.title }}</h2>
         <p>{{ video.description }}</p>
-      </div>
-    </article>
-  } @empty {
-    <article class="empty-gallery gaming-empty">
-      <p>Add gaming uploads.</p>
-    </article>
-  }
+        <a [href]="video.youtubeUrl" target="_blank" rel="noreferrer">
+          Watch on YouTube
+        </a>
+      </article>
+    } @empty {
+      <p class="empty-note">Add videos in src/app/data/gaming-videos.json.</p>
+    }
+  </div>
 </section>

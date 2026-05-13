@@ -1,0 +1,64 @@
+<section class="community-fullscreen wall-fullscreen" aria-labelledby="wall-detail-title">
+  <a class="community-back-link" routerLink="/wall">Back to wall</a>
+
+  <div class="community-fullscreen-header">
+    <span class="wall-mood">{{ post.mood }}</span>
+    <h1 id="wall-detail-title">{{ post.title }}</h1>
+    <p>{{ post.text }}</p>
+  </div>
+
+  <div class="community-fullscreen-media">
+    @if (post.link; as link) {
+      @if (link.type === 'youtube') {
+        <iframe
+          [src]="getYouTubeEmbedUrl(link.url)"
+          title="Wall YouTube video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      } @else if (link.type === 'audio') {
+        <div class="community-audio-preview community-fullscreen-audio">
+          <span>Audio</span>
+          <audio [src]="link.url" controls></audio>
+        </div>
+      } @else if (link.type === 'video') {
+        <video [src]="link.url" controls></video>
+      } @else if (link.type === 'image') {
+        <img [src]="link.url" [alt]="post.title" />
+      } @else {
+        <div class="community-article-preview community-fullscreen-article">
+          <span>Link</span>
+          <strong>{{ link.label }}</strong>
+        </div>
+      }
+    } @else if (post.attachment; as attachment) {
+      @if (attachment.type === 'pdf') {
+        <iframe
+          [src]="getSafeResourceUrl(attachment.url)"
+          title="Wall PDF attachment">
+        </iframe>
+      } @else if (attachment.type === 'video') {
+        <video [src]="attachment.url" controls></video>
+      } @else if (attachment.type === 'image') {
+        <img [src]="attachment.url" [alt]="attachment.label" />
+      } @else {
+        <iframe
+          [src]="getSafeResourceUrl(attachment.url)"
+          title="Wall text attachment">
+        </iframe>
+      }
+    }
+  </div>
+
+  <div class="community-fullscreen-meta">
+    <div class="community-card-footer">
+      <span>{{ post.author }}</span>
+      @if (post.link; as link) {
+        <a [href]="link.url" target="_blank" rel="noreferrer">{{ link.label }}</a>
+      }
+      @if (post.attachment; as attachment) {
+        <a [href]="attachment.url" target="_blank" rel="noreferrer">{{ attachment.label }}</a>
+      }
+    </div>
+  </div>
+</section>
