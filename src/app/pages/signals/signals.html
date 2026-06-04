@@ -2,64 +2,12 @@
   <p class="eyebrow">Chapter 02</p>
   <h1 id="signals-title">Signals</h1>
   <p class="intro">
-    A curated board for the things Jamie keeps returning to: playlists, reads,
-    useful videos, sharp opinions, self-work, and football magic.
+    A curated board for the things Jamie keeps returning to: reads, useful
+    videos, sharp opinions, self-work, and football magic.
   </p>
 </section>
 
 <section class="signal-board" aria-label="Signal collections">
-  <article class="preview-card jukebox-card">
-    <div class="jukebox-header">
-      <h2>Jamie's Jukebox</h2>
-    </div>
-
-    <div class="jukebox-player">
-      @if (currentEmbedUrl) {
-        <iframe
-          [src]="currentEmbedUrl"
-          title="Jamie's Jukebox YouTube player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      } @else {
-        <div class="player-placeholder">Jukebox is warming up...</div>
-      }
-    </div>
-
-    <div class="jukebox-controls">
-      <div class="playlist-switcher">
-        <span>Choose playlist</span>
-        <div class="playlist-tabs" aria-label="Jukebox playlists">
-          @for (playlist of playlists; track playlist.name; let playlistIndex = $index) {
-            <button
-              type="button"
-              [class.active]="playlistIndex === selectedPlaylistIndex"
-              (click)="selectPlaylist(playlistIndex)"
-            >
-              {{ playlist.name }}
-            </button>
-          }
-        </div>
-      </div>
-
-      <p>{{ selectedPlaylist.name }}</p>
-    </div>
-
-    <div class="track-controls" aria-label="Jukebox track controls">
-      <button type="button" (click)="playPreviousSong()">&lt; Previous</button>
-      @if (selectedSong) {
-        <div>
-          <small>Now playing</small>
-          <span>{{ selectedSong.title }}</span>
-          @if (selectedSong.artist) {
-            <em>{{ selectedSong.artist }}</em>
-          }
-        </div>
-      }
-      <button type="button" (click)="playNextSong()">Next &gt;</button>
-    </div>
-  </article>
-
   <article class="preview-card signal-card reads-card">
     <div>
       <span class="card-number">Reads</span>
