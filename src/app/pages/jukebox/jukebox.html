@@ -45,6 +45,28 @@
       <p>{{ selectedPlaylist.name }}</p>
     </div>
 
+    @if (selectedPlaylist.songs.length) {
+      <div class="song-select-control">
+        <span>Select song</span>
+        <details class="song-dropdown">
+          <summary>
+            {{ selectedSong.artist ? selectedSong.title + ' - ' + selectedSong.artist : selectedSong.title }}
+          </summary>
+          <div class="song-dropdown-menu">
+            @for (song of selectedPlaylist.songs; track song.youtubeUrl; let songIndex = $index) {
+              <button
+                type="button"
+                [class.active]="songIndex === selectedSongIndex"
+                (click)="selectSong(songIndex, $event)"
+              >
+                {{ song.artist ? song.title + ' - ' + song.artist : song.title }}
+              </button>
+            }
+          </div>
+        </details>
+      </div>
+    }
+
     <div class="track-controls" aria-label="Jukebox track controls">
       <button type="button" (click)="playPreviousSong()">&lt; Previous</button>
       @if (selectedSong) {

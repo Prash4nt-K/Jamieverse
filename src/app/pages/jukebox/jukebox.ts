@@ -54,6 +54,13 @@ export class Jukebox {
     this.selectedSongIndex = 0;
   }
 
+  selectSong(index: number, event: Event) {
+    this.selectedSongIndex = index;
+
+    const dropdown = (event.currentTarget as HTMLElement).closest('details');
+    dropdown?.removeAttribute('open');
+  }
+
   playPreviousSong() {
     const songCount = this.selectedPlaylist?.songs.length ?? 0;
 

@@ -553,6 +553,105 @@ h1 {
   font-weight: 800;
 }
 
+.song-select-control {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 24px 18px;
+  text-align: center;
+}
+
+.song-select-control > span {
+  color: #f4c15d;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.song-dropdown {
+  width: 100%;
+  max-width: 520px;
+  min-width: 0;
+}
+
+.song-dropdown summary {
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-height: 42px;
+  width: 100%;
+  padding: 11px 44px 10px 16px;
+  border: 1px solid rgba(244, 193, 93, 0.32);
+  border-radius: 8px;
+  color: #f7f4eb;
+  background:
+    linear-gradient(45deg, transparent 50%, #f4c15d 50%) calc(100% - 20px) 50% / 7px 7px no-repeat,
+    linear-gradient(135deg, #f4c15d 50%, transparent 50%) calc(100% - 15px) 50% / 7px 7px no-repeat,
+    linear-gradient(135deg, rgba(244, 193, 93, 0.14), rgba(255, 94, 91, 0.08)),
+    rgba(3, 8, 12, 0.42);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 900;
+  list-style: none;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.song-dropdown summary:focus {
+  outline: 2px solid rgba(244, 193, 93, 0.34);
+  outline-offset: 3px;
+}
+
+.song-dropdown-menu {
+  display: grid;
+  gap: 3px;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: min(320px, 58vh);
+  overflow: auto;
+  margin-top: 8px;
+  padding: 6px;
+  border: 1px solid rgba(244, 193, 93, 0.32);
+  border-radius: 8px;
+  background: rgba(16, 22, 24, 0.98);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.34);
+}
+
+.song-dropdown-menu button {
+  min-height: 38px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #f7f4eb;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.song-dropdown-menu button.active {
+  color: #211d1a;
+  background: #f4c15d;
+}
+
+.song-dropdown-menu button:not(.active):hover {
+  border-color: rgba(244, 193, 93, 0.22);
+  color: #f4c15d;
+  background: rgba(244, 193, 93, 0.09);
+}
+
 .track-controls {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
@@ -1599,6 +1698,29 @@ h1 {
     flex-direction: column;
   }
 
+  .song-select-control {
+    justify-items: center;
+    padding: 0 24px 16px;
+    text-align: center;
+  }
+
+  .song-dropdown {
+    width: 100%;
+  }
+
+  .song-dropdown summary {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .song-dropdown-menu {
+    width: 100%;
+  }
+
+  .song-dropdown-menu button {
+    font-size: 0.9rem;
+  }
+
   .track-controls {
     grid-template-columns: 1fr;
   }
@@ -1617,6 +1739,35 @@ h1 {
 }
 
 @media (max-width: 520px) {
+  .song-select-control {
+    gap: 6px;
+    padding: 0 24px 14px;
+  }
+
+  .song-select-control > span {
+    font-size: 0.68rem;
+  }
+
+  .song-dropdown summary {
+    min-height: 40px;
+    padding-right: 38px;
+    padding-left: 10px;
+    background:
+      linear-gradient(45deg, transparent 50%, #f4c15d 50%) calc(100% - 17px) 50% / 6px 6px no-repeat,
+      linear-gradient(135deg, #f4c15d 50%, transparent 50%) calc(100% - 13px) 50% / 6px 6px no-repeat,
+      linear-gradient(135deg, rgba(244, 193, 93, 0.14), rgba(255, 94, 91, 0.08)),
+      rgba(3, 8, 12, 0.42);
+    font-size: 0.84rem;
+  }
+
+  .song-dropdown-menu {
+    max-height: min(300px, 54vh);
+  }
+
+  .song-dropdown-menu button {
+    font-size: 0.84rem;
+  }
+
   .track-controls {
     grid-template-columns: 44px minmax(0, 1fr) 44px;
     gap: 8px;
