@@ -20,6 +20,41 @@
     ]
   },
   {
+    "name": "FIFA",
+    "songs": [
+      {
+        "title": "We Are One (Ole Ola) [The Official 2014 FIFA World Cup Song] (Olodum Mix)",
+        "artist": "Pitbull, Jennifer Lopez, Claudia Leitte​",
+        "youtubeUrl": "https://www.youtube.com/watch?v=TGtWWb9emYI"
+      },
+      {
+        "title": "Magic in The Air ● FIFA World Cup Russia 2018 (Official Video)",
+        "artist": "MAGIC SYSTEM, Chawki",
+        "youtubeUrl": "https://www.youtube.com/watch?v=Yqwnn9vpAhA"
+      },
+      {
+        "title": "Dreamers | FIFA World Cup 2022 Soundtrack",
+        "artist": "정국 Jung Kook (of BTS) featuring Fahad Al Kubaisi",
+        "youtubeUrl": "https://www.youtube.com/watch?v=IwzkfMmNMpM"
+      },
+      {
+        "title": "Waka Waka (This Time for Africa) [The Official 2010 FIFA World Cup Song]",
+        "artist": "Shakira, Freshlyground",
+        "youtubeUrl": "https://www.youtube.com/watch?v=pRpeEdMmmQ0"
+      },
+      {
+        "title": "K'NAAN - Wavin' Flag (Coca-Cola Celebration Mix)",
+        "artist": "K'NAAN",
+        "youtubeUrl": "https://www.youtube.com/watch?v=WTJSt4wP2ME"
+      },
+      {
+        "title": "The Cup of Life (Official 1998 FIFA World Cup Song)",
+        "artist": "Ricky Martin",
+        "youtubeUrl": "https://www.youtube.com/watch?v=dZDj2CnG5dE"
+      }
+    ]
+  },
+  {
     "name": "For Frenchie",
     "songs": [
       {
@@ -33,7 +68,7 @@
     "name": "Spanish",
     "songs": [
       {
-        "title": "Camilo, Pedro Capó - Tutu (Official Video)",
+        "title": "Tutu (Official Video)",
         "artist": "Camilo, Pedro Capó",
         "youtubeUrl": "https://www.youtube.com/watch?v=5AkDqm-cEgg"
       }
@@ -46,6 +81,21 @@
         "title": "Donatas Montvydas - Jausmai",
         "artist": "Donny Montell",
         "youtubeUrl": "https://www.youtube.com/watch?v=uI1Ywsz-fHQ"
+      }
+    ]
+  },
+  {
+    "name": "English Timeless",
+    "songs": [
+      {
+        "title": "Piano Man (Official HD Video)",
+        "artist": "Billy Joel",
+        "youtubeUrl": "https://www.youtube.com/watch?v=gxEPV4kolz0"
+      },
+      {
+        "title": "Take Me Home, Country Roads (Official Audio)",
+        "artist": "John Denver",
+        "youtubeUrl": "https://www.youtube.com/watch?v=1vrEljMfXYo"
       }
     ]
   },
@@ -118,9 +168,29 @@
     "name": "Vibes",
     "songs": [
       {
-        "title": "Please Please Please",
+        "title": "Save Your Tears (Official Music Video)",
         "artist": "The Weeknd",
         "youtubeUrl": "https://www.youtube.com/watch?v=XXYlFuWEuKI"
+      },
+      {
+        "title": "Circles",
+        "artist": "Post Malone",
+        "youtubeUrl": "https://www.youtube.com/watch?v=wXhTHyIgQ_U"
+      }
+    ]
+  },
+  {
+    "name": "Arctic Monkeys",
+    "songs": [
+      {
+        "artist": "Arctic Monkeys",
+        "title": "No. 1 Party Anthem Live Reading & Leeds Festival 2014 Hd",
+        "youtubeUrl": "https://www.youtube.com/watch?v=RrRl1lVO9jM"
+      },
+      {
+        "title": "Secret Door",
+        "artist": "Arctic Monkeys",
+        "youtubeUrl": "https://www.youtube.com/watch?v=FUCQIbawmCE"
       }
     ]
   },
